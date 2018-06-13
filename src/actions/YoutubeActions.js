@@ -1,7 +1,7 @@
 import { AsyncStorage } from 'react-native';
 import YTSearch from 'youtube-api-search';
 import _ from 'lodash';
-const API_KEY ="AIzaSyC1AsnZDzJnadICvfQFAKrRLJjRfCGpOxo";
+const API_KEY ="";
 
 import{
   FETCH_VIDEOS,
