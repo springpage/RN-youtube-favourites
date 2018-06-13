@@ -3,8 +3,8 @@ an react native app
 
 
 ## Demo for app
-- Youtube: (https://www.youtube.com/watch?v=8vzB3ZuwRnc)
-- Expo: (https://expo.io/@spring6166/favourite-youtube-and-weather)
+- Youtube: https://www.youtube.com/watch?v=8vzB3ZuwRnc
+- Expo: https://expo.io/@spring6166/favourite-youtube-and-weather
 
 ## About this app
 - This is a simple app that fetch videos from youtube using youtube api, after user search. Then it list the videos and user can click and play it.
