@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Image } from "react-native";
+import React, { Component } from 'react';
+import { Image } from 'react-native';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
@@ -16,19 +16,16 @@ import {
   Text,
   Card,
   CardItem,
-  List,
-
-} from "native-base";
-import styles from "./styles";
-
+  List
+} from 'native-base';
+import styles from './styles';
 
 class LikedVideo extends Component {
-
-  componentWillMount(){
+  componentWillMount() {
     this.props.loadLikedVideos();
   }
 
-  removeLikedVideo(video){
+  removeLikedVideo(video) {
     this.props.removeLikedVideo(video);
   }
 
@@ -39,7 +36,7 @@ class LikedVideo extends Component {
           <Left>
             <Button
               transparent
-              onPress={() => this.props.navigation.navigate("DrawerOpen")}
+              onPress={() => this.props.navigation.navigate('DrawerOpen')}
             >
               <Icon name="menu" />
             </Button>
@@ -48,57 +45,58 @@ class LikedVideo extends Component {
             <Title>Liked Videos</Title>
           </Body>
           <Right />
-
         </Header>
 
         <Content padder>
-
           <List
             dataArray={this.props.likedVideos}
-            renderRow={video =>
-              {
-                let videoTitle=video.snippet.title;
-                let channelTitle=video.snippet.channelTitle;
-                let thumbnailUrl=video.snippet.thumbnails.high.url;
+            renderRow={video => {
+              let videoTitle = video.snippet.title;
+              let channelTitle = video.snippet.channelTitle;
+              let thumbnailUrl = video.snippet.thumbnails.high.url;
 
-                return(
-                  <Card style={styles.mb}>
-                    <CardItem>
-                      <Left>
-                        <Body>
-                          <Text>{videoTitle}</Text>
-                          <Text note>{channelTitle}</Text>
-                        </Body>
-                      </Left>
-                    </CardItem>
+              return (
+                <Card style={styles.mb}>
+                  <CardItem>
+                    <Left>
+                      <Body>
+                        <Text>{videoTitle}</Text>
+                        <Text note>{channelTitle}</Text>
+                      </Body>
+                    </Left>
+                  </CardItem>
 
-                    <CardItem cardBody button onPress={() => this.props.navigation.navigate('OpenVideo',{video})}>
-                      <Image
-                        style={{
-                          resizeMode: "cover",
-                          width: null,
-                          height: 200,
-                          flex: 1
-                        }}
-                        source={{uri:thumbnailUrl}}
-                      />
-                    </CardItem>
-                    <CardItem style={{ paddingVertical: 0 }}>
-                      <Left>
-                        <Button
-                          onPress={()=> this.removeLikedVideo(video)}
-                          transparent
-                        >
-                          <Icon active name="thumbs-down" />
-                          <Text>Unlike this video</Text>
-                        </Button>
-                      </Left>
-
-                    </CardItem>
-                  </Card>
-                )
-              }
-            }
+                  <CardItem
+                    cardBody
+                    button
+                    onPress={() =>
+                      this.props.navigation.navigate('OpenVideo', { video })
+                    }
+                  >
+                    <Image
+                      style={{
+                        resizeMode: 'cover',
+                        width: null,
+                        height: 200,
+                        flex: 1
+                      }}
+                      source={{ uri: thumbnailUrl }}
+                    />
+                  </CardItem>
+                  <CardItem style={{ paddingVertical: 0 }}>
+                    <Left>
+                      <Button
+                        onPress={() => this.removeLikedVideo(video)}
+                        transparent
+                      >
+                        <Icon active name="thumbs-down" />
+                        <Text>Unlike this video</Text>
+                      </Button>
+                    </Left>
+                  </CardItem>
+                </Card>
+              );
+            }}
           />
         </Content>
       </Container>
@@ -106,8 +104,11 @@ class LikedVideo extends Component {
   }
 }
 
-function mapStateToProps(state){
-  return {likedVideos: state.youtube.likedVideos}
+function mapStateToProps(state) {
+  return { likedVideos: state.youtube.likedVideos };
 }
 
-export default connect(mapStateToProps, actions)(LikedVideo);
+export default connect(
+  mapStateToProps,
+  actions
+)(LikedVideo);

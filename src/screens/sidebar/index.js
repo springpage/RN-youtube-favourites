@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Image } from "react-native";
+import React, { Component } from 'react';
+import { Image } from 'react-native';
 import {
   Content,
   Text,
@@ -11,25 +11,24 @@ import {
   Right,
   Badge,
   Button
-} from "native-base";
-import styles from "./styles";
+} from 'native-base';
+import styles from './styles';
 
 const datas = [
   {
-    name: "Find new Favourite Videos",
-    route: "Youtube",
-    icon: "logo-youtube",
-    iconStyle: { color: "#ff0000"},
-    bg: "#C5F442"
+    name: 'Find new Favourite Videos',
+    route: 'Youtube',
+    icon: 'logo-youtube',
+    iconStyle: { color: '#ff0000' },
+    bg: '#C5F442'
   },
   {
-    name: "Liked Videos",
-    route: "LikedVideo",
-    icon: "md-thumbs-up",
-    iconStyle: { color: "#6600ff"},
-    bg: "#C5F442"
-  },
-
+    name: 'Liked Videos',
+    route: 'LikedVideo',
+    icon: 'md-thumbs-up',
+    iconStyle: { color: '#6600ff' },
+    bg: '#C5F442'
+  }
 ];
 
 class SideBar extends Component {
@@ -46,16 +45,15 @@ class SideBar extends Component {
       <Container>
         <Content
           bounces={false}
-          style={{ flex: 1, backgroundColor: "#fff", top: -1 }}
+          style={{ flex: 1, backgroundColor: '#fff', top: -1 }}
         >
-
           <Button disabled info full style={styles.mb15}>
             <Text>Youtube favourite app</Text>
           </Button>
 
           <List
             dataArray={datas}
-            renderRow={data =>
+            renderRow={data => (
               <ListItem
                 button
                 noBorder
@@ -65,14 +63,14 @@ class SideBar extends Component {
                   <Icon
                     active
                     name={data.icon}
-
-                    style={{ color: "#777", fontSize: 26, width: 30 }, data.iconStyle}
+                    style={
+                      ({ color: '#777', fontSize: 26, width: 30 },
+                      data.iconStyle)
+                    }
                   />
-                  <Text style={styles.text}>
-                    {data.name}
-                  </Text>
+                  <Text style={styles.text}>{data.name}</Text>
                 </Left>
-                {data.types &&
+                {data.types && (
                   <Right style={{ flex: 1 }}>
                     <Badge
                       style={{
@@ -82,12 +80,14 @@ class SideBar extends Component {
                         backgroundColor: data.bg
                       }}
                     >
-                      <Text
-                        style={styles.badgeText}
-                      >{`${data.types} Types`}</Text>
+                      <Text style={styles.badgeText}>{`${
+                        data.types
+                      } Types`}</Text>
                     </Badge>
-                  </Right>}
-              </ListItem>}
+                  </Right>
+                )}
+              </ListItem>
+            )}
           />
         </Content>
       </Container>

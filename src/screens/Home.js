@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 import {
   Container,
@@ -10,13 +10,12 @@ import {
   Left,
   Right,
   Body,
-  Text,
-} from "native-base";
+  Text
+} from 'native-base';
 
-import styles from "./styles";
+import styles from './styles';
 
 class Home extends Component {
-
   render() {
     return (
       <Container style={styles.container}>
@@ -24,7 +23,7 @@ class Home extends Component {
           <Left>
             <Button
               transparent
-              onPress={() => this.props.navigation.navigate("DrawerOpen")}
+              onPress={() => this.props.navigation.navigate('DrawerOpen')}
             >
               <Icon name="menu" />
             </Button>
